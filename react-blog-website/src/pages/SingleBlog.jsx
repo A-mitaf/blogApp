@@ -2,6 +2,7 @@ import React from 'react'
 import { useLoaderData } from 'react-router-dom'
 import {FaUser} from "react-icons/fa"
 import { FaClock } from 'react-icons/fa6'
+import SideBar from '../conponents/SideBar'
 
 const SingleBlog = () => {
     const data = useLoaderData();
@@ -12,7 +13,7 @@ const SingleBlog = () => {
         <h2 className='text-5xl lg:text-7xl leading-snug font-bold mb-5'>Single Blog Page</h2>
       </div>
 
-      <div className='max-w-7xl mx-auto my-12'>
+      <div className='max-w-7xl mx-auto my-12 flex flex-col md:flex-row gap-12'>
         <div className='lg:w-3/4 mx-auto'>
             <div>
                 <img src={image} alt='' className='w-full mx-auto rounded' />
@@ -32,6 +33,9 @@ const SingleBlog = () => {
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur possimus quia, rem molestiae totam harum sit non fugiat porro hic perferendis, explicabo delectus, autem blanditiis nostrum est ipsum enim nesciunt?</p>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam minus blanditiis maiores aliquam eaque autem, dolor eum reprehenderit ad neque non saepe sit! Ipsam et ex ad quidem consectetur officia.</p> <br/>
             </div>
+        </div>
+        <div className='lg:w-1/2'>
+            <SideBar/>
         </div>
       </div>
     </div>

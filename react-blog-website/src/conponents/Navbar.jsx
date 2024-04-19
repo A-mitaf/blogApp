@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { FaDiscord, FaGithub, FaXmark } from "react-icons/fa6";
 import { FaLinkedin, FaBars} from "react-icons/fa";
+import Modal from './Modal';
 const Navbar = () => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -15,6 +17,14 @@ const Navbar = () => {
         {path: "/blogs", link:"Blogs"},
         {path: "/contact", link:"Contact"},
     ]
+
+    const openModal = () => {
+        setIsModalOpen(true);
+    }
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    }
   return (
     <header className='bg-black text-white fixed top-0 left-0 right-0' >
         <nav className='px-4 py-4 max-w-7xl mx-auto flex justify-between items-center'>
@@ -37,8 +47,10 @@ const Navbar = () => {
                 <a href="/" className='hover:text-orange-500'><FaDiscord /></a>
                 <a href="/" className='hover:text-orange-500'><FaGithub /></a>
                 <a href="/" className='hover:text-orange-500'><FaLinkedin /></a>
-                <button className='bg-orange-500 px-6 py-2 font-medium rounded hover:bg-white hover:text-orange-500 transition-all duration-200 ease-in' >Log in</button>
+                <button onClick={openModal} className='bg-orange-500 px-6 py-2 font-medium rounded hover:bg-white hover:text-orange-500 transition-all duration-200 ease-in' >Log in</button>
                 </div>
+
+                <Modal isOpen={isModalOpen} onClose={closeModal} />
 
                 <div className='md:hidden'>
                     <button onClick={toggleMenu} className='cursor-pointer'>
